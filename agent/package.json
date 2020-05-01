@@ -5,10 +5,11 @@
   "private": true,
   "main": "src/index.ts",
   "scripts": {
-    "prepare": "npm run build",
+    "prepare": "npm run snyk-protect && npm run build",
     "build": "frida-compile src/index.ts -o ../objection/agent.js -c",
     "watch": "frida-compile src/index.ts -o ../objection/agent.js -w -c",
-    "lint": "tslint -c tslint.json 'src/**/*.ts'"
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "snyk-protect": "snyk protect"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,8 @@
   "dependencies": {
     "frida-java": "^2",
     "frida-objc": "^3",
-    "frida-screenshot": "^2"
+    "frida-screenshot": "^2",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@babel/core": "^7",
@@ -41,5 +43,6 @@
     "@types/frida-gum": "^13",
     "frida-compile": "^8",
     "tslint": "^5"
-  }
+  },
+  "snyk": true
 }
